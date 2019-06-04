@@ -1,0 +1,13 @@
+#Find merge point of two linked list
+#Function that takes head pointer of the both linked list and return the node value where both the linked lists merge.
+
+def findMergeNode(head1, head2):
+    cur=head1
+    while(cur is not None):
+        temp=head2
+        while(temp is not None):
+            if(cur==temp):
+                return cur.data
+            else:
+                temp=temp.next
+        cur = cur.next
