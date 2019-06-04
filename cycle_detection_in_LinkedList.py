@@ -1,21 +1,15 @@
 #   Function that takes head of a linked list and return true is the linked list contains cycle otherwise false
-
-
+#   1-True  0 -False
 
 def has_cycle(head):
-    flag=0
-    singlejump=head
-    doublejump=head.next
+    slow=head
+    fast=head.next
     while(1):
-        if(singlejump.next is None or doublejump.next is None or doublejump.next.next is None):
+        if(slow.next is None or fast.next is None or fast.next.next is None):
             break
         else:
-            singlejump=singlejump.next
-            doublejump=doublejump.next.next
-            if(singlejump==doublejump):
-                flag=1
-                break
-    if(flag==1):
-        return True
-    else:
-        return False
+            slow=slow.next
+            fast=fast.next.next
+            if(slow==fast):
+                return 1
+    return 0
